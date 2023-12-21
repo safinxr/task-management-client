@@ -8,6 +8,7 @@ import {
 import Home from './Pages/Home/Home';
 import Signin from './Pages/Signin/Signin';
 import Signup from './Pages/Signup/Signup';
+import Context from './Context/Context';
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Context>
+      <RouterProvider router={router} />
+    </Context>
   </React.StrictMode>,
 )
