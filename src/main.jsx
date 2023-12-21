@@ -9,6 +9,7 @@ import Home from './Pages/Home/Home';
 import Signin from './Pages/Signin/Signin';
 import Signup from './Pages/Signup/Signup';
 import Context from './Context/Context';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup></Signup>,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
   },
 ]);
 
