@@ -10,6 +10,8 @@ import Signin from './Pages/Signin/Signin';
 import Signup from './Pages/Signup/Signup';
 import Context from './Context/Context';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Task from './Pages/Task/Task';
+import AddTask from './Pages/AddTask/AddTask';
 
 
 const router = createBrowserRouter([
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard></Dashboard>,
+    children:[
+      {
+        path: "/dashboard",
+        element: <Task></Task>,
+      },
+      {
+        path: "/dashboard/addtask",
+        element: <AddTask></AddTask>,
+      },
+    ]
   },
 ]);
 

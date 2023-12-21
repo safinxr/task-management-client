@@ -51,18 +51,18 @@ const Signup = () => {
 
     return (
         <div className="h-screen flex justify-center items-center">
-            <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-2xl dark:bg-gray-800">
+            <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-2xl ">
                 <div className="flex justify-center mx-auto">
                     <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
                     <div>
-                        <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">
+                        <label htmlFor="username" className="block text-sm text-gray-800 ">
                             Name
                         </label>
                         <input
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400  focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             type="name"
                             placeholder='Name'
                             required
@@ -73,11 +73,11 @@ const Signup = () => {
 
                     </div>
                     <div className="mt-4">
-                        <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">
+                        <label htmlFor="username" className="block text-sm text-gray-800 ">
                             Email
                         </label>
                         <input
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400  focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             type="email"
                             placeholder='Email'
                             required
@@ -89,12 +89,12 @@ const Signup = () => {
                     </div>
 
                     <div className="mt-6">
-                        <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">
+                        <label htmlFor="username" className="block text-sm text-gray-800 ">
                             Password
                         </label>
 
                         <input
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400  focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             type="password"
                             placeholder='Password'
                             required
@@ -117,13 +117,13 @@ const Signup = () => {
                 </form>
 
                 <div className="flex items-center justify-between mt-4">
-                    <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
+                    <span className="w-1/5 border-b  lg:w-1/5"></span>
 
-                    <p className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 ">
+                    <p className="text-xs text-center text-gray-500 uppercase  ">
                         or login with Social Media
                     </p>
 
-                    <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
+                    <span className="w-1/5 border-b  lg:w-1/5"></span>
                 </div>
 
                 <div className="flex items-center mt-6 -mx-2">
@@ -142,7 +142,7 @@ const Signup = () => {
                 </div>
 
                 <p className="mt-8 text-xs font-light text-center text-gray-400">
-                    Already have an account? <Link to='/signin' className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Sign in</Link>
+                    Already have an account? <Link to='/signin' className="font-medium text-gray-700  hover:underline">Sign in</Link>
                 </p>
             </div>
         </div>
