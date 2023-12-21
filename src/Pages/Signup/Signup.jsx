@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form"
 import logo from "../../assets/logo.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { ContextAuth } from "../../Context/Context";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Signup = () => {
     const {
@@ -9,7 +12,43 @@ const Signup = () => {
         watch,
         formState: { errors },
     } = useForm()
-    const onSubmit = (data) => console.log(data)
+
+    const { emailPassSignUp, upProfile, googleSignIn, shortLoading, setLoading } = useContext(ContextAuth)
+    const navigate = useNavigate()
+    const provider = new GoogleAuthProvider();
+    const [errorText, setErrorText] = useState(null)
+
+    const onSubmit = (data) => {
+        setErrorText(null)
+
+        const name = data.name;
+        const email = data.email;
+        const password = data.password
+        emailPassSignUp(email, password)
+            .then(res => {
+                upProfile(name)
+                    .then(() => {
+                        console.log('done');
+                        setLoading(false)
+                        navigate('/')
+                    }).catch((error) => {
+                        setLoading(false)
+                        setErrorText("error:" + " " + error.message.split("/")[1].split(")")[0]);
+                    });
+
+
+
+
+            })
+            .catch(error => {
+                setLoading(false)
+                setErrorText("error:" + " " + error.message.split("/")[1].split(")")[0]);
+            })
+    }
+
+
+
+
     return (
         <div className="h-screen flex justify-center items-center">
             <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-2xl dark:bg-gray-800">
@@ -63,13 +102,16 @@ const Signup = () => {
                         />
 
                     </div>
+                    {
+                        errorText ? <><p className="text-red-400">{errorText}</p></> : ''
+                    }
 
                     <div className="mt-6">
                         <button
                             type="submit"
                             className="w-full px-6 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
                         >
-                            Sign Up
+                            {shortLoading ? "..." : "Sign Up"}
                         </button>
                     </div>
                 </form>

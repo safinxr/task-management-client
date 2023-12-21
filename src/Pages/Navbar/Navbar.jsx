@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { ContextAuth } from '../../Context/Context';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2, setIsOpen2] = useState(true);
-
+    const { user, logOut, shortLoading, setLoading } = useContext(ContextAuth)
+    
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    const signOut = () => {
+        logOut()
+    }
 
     return (
         <nav x-data="{ isOpen: false }" className="relative bg-white shadow dark:bg-gray-800">
@@ -41,9 +47,16 @@ const Navbar = () => {
 
                         <Link to='/dashboard' className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" >Dashboard</Link>
 
-                        <Link to='/signin' className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" >Sign In</Link>
+                        {
+                            shortLoading ? <><p>...</p></> : user ? <button className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" onClick={signOut}>Sign Out</button>
+                            :<>
+                                    <Link to='/signin' className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" >Sign In</Link>
 
-                        <Link to='/signup' className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" >Sign Up</Link>
+                                    <Link to='/signup' className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" >Sign Up</Link>
+                            </>
+                        }
+
+                       
                        
                     </div>
                 </div>
